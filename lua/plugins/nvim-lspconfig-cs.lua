@@ -23,6 +23,13 @@ return {
                 typeHints = false, -- Disable type hints specifically
                 parameterHints = false, -- Disable parameter hints specifically
               },
+              files = {
+                excludeDirs = {
+                  "target",
+                  ".git",
+                  "node_modules",
+                },
+              },
             },
           },
         },
