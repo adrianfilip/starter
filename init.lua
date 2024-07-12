@@ -11,3 +11,20 @@ require("bufferline").setup({
     -- additional configuration settings if needed
   },
 })
+
+require("fzf-lua").setup({
+  winopts = {
+    -- other window options here
+  },
+  keymap = {
+    builtin = {
+      ["<Tab>"] = "down", -- navigate down
+      ["<S-Tab>"] = "up", -- navigate up
+      ["<CR>"] = "select", -- select the item
+    },
+    fzf = {
+      ["tab"] = "down", -- navigate down
+      ["shift-tab"] = "up", -- navigate up
+    },
+  },
+})
