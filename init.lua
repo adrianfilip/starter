@@ -11,3 +11,8 @@ require("bufferline").setup({
     -- additional configuration settings if needed
   },
 })
+
+-- Remap Ctrl+c to behave like Esc
+vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("v", "<C-c>", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", { noremap = true })
