@@ -16,3 +16,19 @@ require("bufferline").setup({
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-c>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", { noremap = true })
+-- replace mode is a subset of insert so I can't remap it
+
+-- Keep block cursor in all modes
+vim.opt.guicursor = "a:block"
+-- Define highlight groups for different modes
+vim.api.nvim_set_hl(0, "NormalCursor", { bg = "#708090" }) -- Cool gray with a slight blue tint for normal mode
+vim.api.nvim_set_hl(0, "InsertCursor", { bg = "#d79921" }) -- Muted gold for insert mode
+vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#268bd2" }) -- Rich blue for visual mode
+vim.api.nvim_set_hl(0, "ReplaceCursor", { bg = "#ff0000" }) -- Red for replace mode
+
+vim.opt.guicursor = table.concat({
+  "n:block-NormalCursor",
+  "i-ci:block-InsertCursor",
+  "v:block-VisualCursor",
+  "r-cr-o:block-ReplaceCursor",
+}, ",")
