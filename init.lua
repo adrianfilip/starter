@@ -21,8 +21,8 @@ vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", { noremap = true })
 -- Keep block cursor in all modes
 vim.opt.guicursor = "a:block"
 -- Define highlight groups for different modes
-vim.api.nvim_set_hl(0, "NormalCursor", { bg = "#708090" }) -- Cool gray with a slight blue tint for normal mode
-vim.api.nvim_set_hl(0, "InsertCursor", { bg = "#d79921" }) -- Muted gold for insert mode
+vim.api.nvim_set_hl(0, "NormalCursor", { bg = "#b8e994" }) -- Light green for normal mode
+vim.api.nvim_set_hl(0, "InsertCursor", { bg = "#708090" }) -- Cool gray with a slight blue tint for insert mode
 vim.api.nvim_set_hl(0, "VisualCursor", { bg = "#268bd2" }) -- Rich blue for visual mode
 vim.api.nvim_set_hl(0, "ReplaceCursor", { bg = "#ff0000" }) -- Red for replace mode
 
