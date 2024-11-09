@@ -32,3 +32,13 @@ vim.opt.guicursor = table.concat({
   "v:block-VisualCursor",
   "r-cr-o:block-ReplaceCursor",
 }, ",")
+
+-- don't highlight the current line
+vim.opt.cursorline = false
+
+-- no color change for the backgroud and text of the word the cursor is on
+vim.cmd([[
+  highlight LspReferenceText guibg=NONE guifg=NONE
+  highlight LspReferenceRead guibg=NONE guifg=NONE
+  highlight LspReferenceWrite guibg=NONE guifg=NONE
+]])
