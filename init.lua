@@ -42,3 +42,6 @@ vim.cmd([[
   highlight LspReferenceRead guibg=NONE guifg=NONE
   highlight LspReferenceWrite guibg=NONE guifg=NONE
 ]])
+
+-- Show diagnostics in bottom window
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Show Diagnostics in Location List" })
