@@ -16,7 +16,7 @@ require("bufferline").setup({
 vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-c>", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", { noremap = true })
--- replace mode is a subset of insert so I can't remap it
+-- replace mode (entered by R) is a subset of insert so I can't remap it
 
 -- don't highlight the current line
 vim.opt.cursorline = false
