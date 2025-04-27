@@ -47,11 +47,23 @@ return {
         callback = function()
           if package.loaded["neo-tree"] then
             return
-          else
-            local stats = vim.uv.fs_stat(vim.fn.argv(0))
-            if stats and stats.type == "directory" then
-              require("neo-tree")
-            end
+          end
+
+          -- Get first command line argument safely
+          local args = vim.fn.argv()
+          if #args == 0 then
+            return
+          end
+
+          local path = args[1]
+          if type(path) ~= "string" then
+            return
+          end
+
+          -- Check if it's a directory
+          local ok, stats = pcall(vim.uv.fs_stat, path)
+          if ok and stats and stats.type == "directory" then
+            require("neo-tree")
           end
         end,
       })
