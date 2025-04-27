@@ -25,3 +25,12 @@ vim.keymap.set("n", "<leader>d", function()
     vim.notify("Diagnostics enabled", vim.log.levels.INFO)
   end
 end, { noremap = true, silent = true, desc = "Toggle Diagnostics" })
+
+vim.keymap.set("n", "<leader>fs", function()
+  local search = vim.fn.input("Grep > ")
+  if search == "" then
+    return
+  end
+  -- Use :grep instead of :vimgrep to invoke rg (ripgrep)
+  vim.cmd("silent grep " .. vim.fn.shellescape(search) .. " | copen")
+end, { desc = "Fast Grep (real split)" })
