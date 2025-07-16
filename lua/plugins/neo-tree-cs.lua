@@ -77,6 +77,7 @@ return {
         use_libuv_file_watcher = true,
       },
       window = {
+        position = "right", --neotree is now on the right side by default
         mappings = {
           ["l"] = "open",
           ["h"] = "close_node",
