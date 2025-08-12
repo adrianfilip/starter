@@ -10,6 +10,7 @@
   "darcula-dark.nvim": { "branch": "main", "commit": "5e8edf8b2aff3bf3d5110799713d29649cb87bbb" },
   "dracula.nvim": { "branch": "main", "commit": "96c9d19ce81b26053055ad6f688277d655b3f7d2" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
+  "forest-night.nvim": { "branch": "main", "commit": "401a9bcc0f35ac22f974972ecb094b5be73fee2c" },
   "friendly-snippets": { "branch": "main", "commit": "fc8f183479a472df60aa86f00e295462f2308178" },
   "fzf-lua": { "branch": "main", "commit": "b11467c3fbfe48e4a815e4909f5c4e5b413ce6d0" },
   "gitsigns.nvim": { "branch": "main", "commit": "9cd665f46ab7af2e49d140d328b8e72ea1cf511b" },
