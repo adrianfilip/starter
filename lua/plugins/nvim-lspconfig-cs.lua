@@ -19,6 +19,12 @@ return {
         virtual_text = false,
       },
       servers = {
+        -- using nixd over nil for nix language server
+        nixd = {
+          mason = false,
+          cmd = { "nixd" },
+        }, -- enable nixd
+        nil_ls = false, -- disable nil
         rust_analyzer = {
           settings = {
             ["rust-analyzer"] = {
