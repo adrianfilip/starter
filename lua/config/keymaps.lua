@@ -34,3 +34,6 @@ vim.keymap.set("n", "<leader>fs", function()
   -- Use :grep instead of :vimgrep to invoke rg (ripgrep)
   vim.cmd("silent grep " .. vim.fn.shellescape(search) .. " | copen")
 end, { desc = "Fast Grep (real split)" })
+
+-- Exit terminal mode with Ctrl+C
+vim.keymap.set('t', '<C-c>', '<C-\\><C-n>', { silent = true })
