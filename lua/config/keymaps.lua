@@ -26,14 +26,9 @@ vim.keymap.set("n", "<leader>d", function()
   end
 end, { noremap = true, silent = true, desc = "Toggle Diagnostics" })
 
-vim.keymap.set("n", "<leader>fs", function()
-  local search = vim.fn.input("Grep > ")
-  if search == "" then
-    return
-  end
-  -- Use :grep instead of :vimgrep to invoke rg (ripgrep)
-  vim.cmd("silent grep " .. vim.fn.shellescape(search) .. " | copen")
-end, { desc = "Fast Grep (real split)" })
+-- Quickfix navigation cu centering
+vim.keymap.set("n", "]q", "<cmd>cnext<cr>zz", { desc = "Next quickfix" })
+vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz", { desc = "Prev quickfix" })
 
 -- Exit terminal mode with Ctrl+C
 vim.keymap.set('t', '<C-c>', '<C-\\><C-n>', { silent = true })

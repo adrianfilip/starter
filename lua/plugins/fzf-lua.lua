@@ -1,27 +1,35 @@
 return {
   "ibhagwan/fzf-lua",
-  opts = {
-    winopts = {
-      height = 1, -- 100% of window height
-      width = 0.95, -- 95% of window width
-      --Just like with col (column) values:
-      -- row = 0 positions the window at the top of the screen
-      -- row = 0.5 would position it halfway down the screen
-      -- row = 1 would position it at the bottom of the screen
+  opts = function(_, opts)
+    local actions = require("fzf-lua.actions")
+
+    opts.winopts = vim.tbl_deep_extend("force", opts.winopts or {}, {
+      height = 1,
+      width = 0.95,
       row = 0,
-      -- 0.5 it means half of the available free space is on left half on the right
-      -- 0.9 means 90% of the available free space is on left and 10% on right
-      col = 0.5, -- This centers the window horizontally,
-      relative = "editor", -- Make sure it's relative to editor
+      col = 0.5,
+      relative = "editor",
       preview = {
-        layout = "vertical", -- preview and search windows stacked "vertical" or "horizontal"
-        vertical = "up:70%", --the file preview is at the top
-        -- vertical = "down:70%", --the file preview is at bottom
-        scrollbar = "float", --float, border, none, always
+        layout = "vertical",
+        vertical = "up:70%",
+        scrollbar = "float",
       },
-    },
-    fzf_opts = {
-      ["--layout"] = "reverse-list", -- -- search preview under results
-    },
-  },
+    })
+
+    opts.fzf_opts = vim.tbl_deep_extend("force", opts.fzf_opts or {}, {
+      ["--layout"] = "reverse-list",
+    })
+
+    -- Ctrl-q = trimite TOATE results la quickfix
+    -- Ctrl-a = trimite doar cele selectate cu Tab
+    -- Ctrl-s / Ctrl-v = deschide în split horizontal / vertical
+    opts.actions = vim.tbl_deep_extend("force", opts.actions or {}, {
+      files = {
+        ["ctrl-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all" },
+        ["ctrl-a"] = actions.file_sel_to_qf,
+        ["ctrl-s"] = actions.file_split,
+        ["ctrl-v"] = actions.file_vsplit,
+      },
+    })
+  end,
 }
