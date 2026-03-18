@@ -20,12 +20,16 @@ return {
       ["--layout"] = "reverse-list",
     })
 
-    -- Adauga actiuni fara a suprascrie defaults (enter, etc.)
-    opts.actions = opts.actions or {}
-    opts.actions.files = opts.actions.files or {}
-    opts.actions.files["ctrl-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all" }
-    opts.actions.files["ctrl-a"] = actions.file_sel_to_qf
-    opts.actions.files["ctrl-s"] = actions.file_split
-    opts.actions.files["ctrl-v"] = actions.file_vsplit
+    -- Ctrl-q = trimite TOATE results la quickfix
+    -- Ctrl-a = trimite doar cele selectate cu Tab
+    -- Ctrl-s / Ctrl-v = deschide în split horizontal / vertical
+    opts.actions = vim.tbl_deep_extend("force", opts.actions or {}, {
+      files = {
+        ["ctrl-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all" },
+        ["ctrl-a"] = actions.file_sel_to_qf,
+        ["ctrl-s"] = actions.file_split,
+        ["ctrl-v"] = actions.file_vsplit,
+      },
+    })
   end,
 }
