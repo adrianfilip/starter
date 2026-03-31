@@ -19,17 +19,4 @@ return {
       },
     },
   },
-
-  {
-    "hrsh7th/nvim-cmp",
-    opts = function(_, opts)
-      local cmp = require("cmp")
-      opts.mapping = vim.tbl_extend("force", opts.mapping or {}, {
-        ["<C-l>"] = cmp.mapping.confirm({ select = true }), -- ✅ use <C-l> for completion
-        ["<C-j>"] = cmp.mapping.select_next_item(),
-        ["<C-k>"] = cmp.mapping.select_prev_item(),
-        ["<CR>"] = function() end, -- ❌ disable Enter entirely
-      })
-    end,
-  },
 }

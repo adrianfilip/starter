@@ -32,3 +32,11 @@ vim.keymap.set("n", "[q", "<cmd>cprev<cr>zz", { desc = "Prev quickfix" })
 
 -- Exit terminal mode with Ctrl+C
 vim.keymap.set('t', '<C-c>', '<C-\\><C-n>', { silent = true })
+
+-- Remap Ctrl+c to behave like Esc
+vim.api.nvim_set_keymap("i", "<C-c>", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("v", "<C-c>", "<Esc>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<C-c>", "<Esc>", { noremap = true })
+
+-- Show diagnostics in bottom window
+vim.keymap.set("n", "<leader>dl", vim.diagnostic.setloclist, { desc = "Show Diagnostics in Location List" })
